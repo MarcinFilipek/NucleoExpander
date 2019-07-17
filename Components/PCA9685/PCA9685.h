@@ -24,7 +24,9 @@ public:
 
 	}
 	virtual ~PCA9685(){}
+	void init();
 	void setFreq(uint8_t freq);
+	void detDuty(uint8_t channel, uint8_t duty);
 private:
 	uint8_t address;
 

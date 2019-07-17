@@ -16,7 +16,8 @@ class I2C: public I2CInterface
 public:
 	void init();
 	void test();
-	uint8_t read(uint8_t address, uint8_t reg);
+	void read(uint8_t address, uint8_t reg, uint8_t* buf, uint8_t sizeBuf = 1);
+	void write(uint8_t address, uint8_t reg, uint8_t* buf, uint8_t sizeBuf = 1);
 private:
 	I2C_HandleTypeDef I2CHandle;
 

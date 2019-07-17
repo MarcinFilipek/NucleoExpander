@@ -12,8 +12,9 @@
 
 class I2CInterface
 {
-private:
-	virtual uint8_t read(uint8_t address, uint8_t reg) = 0;
+public:
+	virtual void read(uint8_t address, uint8_t reg, uint8_t* buf, uint8_t sizeBuf = 1) = 0;
+	virtual void write(uint8_t address, uint8_t reg, uint8_t* buf, uint8_t sizeBuf = 1) = 0;
 };
 
 

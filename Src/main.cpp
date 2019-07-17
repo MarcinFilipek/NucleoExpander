@@ -2,6 +2,7 @@
 #include "UartDma/UartDma.h"
 #include "PacketReceiver/PacketReceiver.h"
 #include "I2C/I2C.h"
+#include "PCA9685/PCA9685.h"
 
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
@@ -22,7 +23,10 @@ int main(void)
 
 	I2C i2c;
 	i2c.init();
-	i2c.test();
+
+	PCA9685 pca9685;
+	pca9685.init();
+	pca9685.setFreq(50);
 
 	while (1)
 	{
