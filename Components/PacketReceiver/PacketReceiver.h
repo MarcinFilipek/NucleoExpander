@@ -13,17 +13,23 @@
 class PacketReceiver
 {
 public:
-	static const uint8_t MAX_SIZE = 8;
+	static const uint8_t MAX_SIZE = 10;
 
-	PacketReceiver()
+	PacketReceiver():
+		isNewPacket(false),
+		lostPacket(0),
+		packetPtr(packetArray)
 	{
 		clearPacketArray();
 	}
-
 	virtual ~PacketReceiver(){}
+	static PacketReceiver* getInstance();
 	inline Packet* getPacketArray(){ return packetArray; }
 	Packet getPacket();
+	void setNewPacket();
 private:
+	bool isNewPacket;
+	uint8_t lostPacket;
 	Packet packetArray[MAX_SIZE];
 	Packet* packetPtr;
 

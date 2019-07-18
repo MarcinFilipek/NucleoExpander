@@ -48,6 +48,7 @@
 									<listOptionValue builtIn="false" value="../Components"/>
 									<listOptionValue builtIn="false" value="../Components/HardwareInterrupt"/>
 									<listOptionValue builtIn="false" value="../Hardware"/>
+									<listOptionValue builtIn="false" value="../MainDriver"/>
 								</option>
 								<option id="com.atollic.truestudio.gcc.symbols.defined.1670122205" name="Defined symbols" superClass="com.atollic.truestudio.gcc.symbols.defined" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__weak=__attribute__((weak))"/>
@@ -105,6 +106,7 @@
 									<listOptionValue builtIn="false" value="../Components"/>
 									<listOptionValue builtIn="false" value="../Components/HardwareInterrupt"/>
 									<listOptionValue builtIn="false" value="../Hardware"/>
+									<listOptionValue builtIn="false" value="../MainDriver"/>
 								</option>
 								<inputType id="com.atollic.truestudio.gpp.input.616709922" superClass="com.atollic.truestudio.gpp.input"/>
 							</tool>
@@ -135,6 +137,7 @@
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Hardware"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Inc"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="MainDriver"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="startup"/>
 					</sourceEntries>
@@ -263,6 +266,7 @@
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Hardware"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Inc"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="MainDriver"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="startup"/>
 					</sourceEntries>
