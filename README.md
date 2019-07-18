@@ -4,7 +4,7 @@
 
 Nucleo communicates with pc via serial port. The 32bit package contains 16bit command and 16bit data.
 
-### Current orders
+### Commands
 
 | Command        | Data           | Description  |
 | ------------- |:-------------:| -----|
