@@ -1,13 +1,13 @@
 #include "main.h"
 #include "UartDma/UartDma.h"
 #include "PacketReceiver/PacketReceiver.h"
+#include "I2C/I2C.h"
+#include "PCA9685/PCA9685.h"
 
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 void SystemClock_Config(void);
 void HAL_MspInit(void);
-
-uint8_t rx_buffor[32];
 
 int main(void)
 {
@@ -20,6 +20,20 @@ int main(void)
 	UartDma* uart = UartDma::getInstance();
 	uart->init((uint8_t*)(packetReceiver.getPacketArray()), PacketReceiver::MAX_SIZE * sizeof(Packet));
 	uart->startRecieveDMA();
+
+	I2C i2c;
+	i2c.init();
+
+	PCA9685 pca9685;
+	pca9685.init(&i2c);
+	pca9685.setFreq(50);
+
+	for(float d = 2.0; d <= 10.0; d+=0.2)
+	{
+		pca9685.setDuty(0, d);
+		HAL_Delay(500);
+	}
+	pca9685.setDuty(0, 2.0);
 
 	while (1)
 	{
