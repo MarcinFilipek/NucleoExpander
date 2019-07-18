@@ -6,9 +6,11 @@
  */
 
 #include "PCA9685.h"
+#include "Misc/Delay.h"
 
-void PCA9685::init()
+void PCA9685::init(I2CInterface* i2c)
 {
+	this->i2c = i2c;
 	uint8_t data = 0x00;
 	i2c->write(address, MODE_ADR, &data);
 }
@@ -26,14 +28,16 @@ void PCA9685::setFreq(uint8_t freq)
 	i2c->write(address, MODE_ADR, &newmode);
 	i2c->write(address, PRESCALE_ADR, &prescale);
 	i2c->write(address, MODE_ADR, &oldmode);
-	HAL_Delay(5);
+	delay(5);
 	oldmode = oldmode | 0x80;
 	i2c->write(address, MODE_ADR, &oldmode);
 }
 
-void PCA9685::detDuty(uint8_t channel, uint8_t duty)
+void PCA9685::setDuty(uint8_t channel, float duty)
 {
-	uint16_t data = duty * 4996 / 100;
-	i2c->write(address, BASE_ADR_LOW + 4 * channel, data & 0xFF);
-	i2c->write(address, BASE_ADR_HIGH + 4 * channel, data >> 8 );
+	float data = duty * 4996 / 100;
+	uint8_t dataSend = (uint16_t)data & 0xFF;
+	i2c->write(address, BASE_ADR_LOW + 4 * channel, &dataSend);
+	dataSend = (uint16_t)data >> 8;
+	i2c->write(address, BASE_ADR_HIGH + 4 * channel, &dataSend);
 }

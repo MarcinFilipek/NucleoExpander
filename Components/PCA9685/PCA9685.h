@@ -24,9 +24,9 @@ public:
 
 	}
 	virtual ~PCA9685(){}
-	void init();
+	void init(I2CInterface* i2c);
 	void setFreq(uint8_t freq);
-	void detDuty(uint8_t channel, uint8_t duty);
+	void setDuty(uint8_t channel, float duty);
 private:
 	uint8_t address;
 

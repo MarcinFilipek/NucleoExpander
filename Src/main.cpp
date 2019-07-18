@@ -25,8 +25,15 @@ int main(void)
 	i2c.init();
 
 	PCA9685 pca9685;
-	pca9685.init();
+	pca9685.init(&i2c);
 	pca9685.setFreq(50);
+
+	for(float d = 2.0; d <= 10.0; d+=0.2)
+	{
+		pca9685.setDuty(0, d);
+		HAL_Delay(500);
+	}
+	pca9685.setDuty(0, 2.0);
 
 	while (1)
 	{
