@@ -9,8 +9,9 @@
 #define PCA9685_PCA9685_H_
 
 #include "Interfaces/I2CInterface.h"
+#include "Interfaces/PWMInterface.h"
 
-class PCA9685
+class PCA9685: public PWMInterface
 {
 public:
 	static const uint8_t MODE_ADR = 0x00;

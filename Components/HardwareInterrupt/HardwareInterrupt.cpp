@@ -7,6 +7,7 @@
 
 #include "HardwareInterrupt.h"
 #include "UartDma/UartDma.h"
+#include "PacketReceiver/PacketReceiver.h"
 
 /**
   * @brief This function handles Non maskable interrupt.
@@ -112,4 +113,21 @@ void DMA1_Stream3_IRQHandler(void)
 void USART3_IRQHandler(void)
 {
 	UartDma::getInstance()->irqUART();
+}
+
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	PacketReceiver::getInstance()->setNewPacket();
+	UartDma::getInstance()->startRecieveDMA();
+}
+
+void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
+{
+
 }
