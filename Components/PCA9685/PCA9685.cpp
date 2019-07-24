@@ -18,7 +18,7 @@ void PCA9685::init(I2CInterface* i2c)
 void PCA9685::setFreq(uint8_t freq)
 {
 	float prescaleValue = 25000000.0f;
-	prescaleValue /= 4046.0f;
+	prescaleValue /= 4096.0f;
 	prescaleValue /= (float)freq;
 	prescaleValue -= 1.0f;
 	uint8_t prescale = (uint8_t)prescaleValue;
